@@ -40,6 +40,11 @@ function Login() {
                     <>
                         {
                             flowData.methods && flowData.methods.password ? <>
+                                {flowData.methods.password.config.messages ? flowData.methods.password.config.messages.map((msg, i) => {
+                                    return <Fragment key={i}>
+                                        <p>{msg.text}</p>
+                                    </Fragment>
+                                }) : null}
                                 <form action={flowData.methods.password.config.action} method={flowData.methods.password.config.method}>
                                     {
                                         flowData.methods.password.config.fields.map((f) => {
